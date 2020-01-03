@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wuxufang.week2.dao.GoodsMapper">
+
+	<select id="selects" resultType="Goods">
+		select * from b_goods
+		<where>
+			<if test="null!=stratPrice and startPrice!=''">
+				and price >= #{startPrice}
+			</if>
+			<if test="null!=endPrice and endPrice!=''">
+				and price &lt;= #{endPrice}
+			</if>
+			<if test="null!=stratSales and stratSales!=''">
+				and sales >= #{stratSales}
+			</if>
+			<if test="null!=endSales and endSales!=''">
+				and sales &lt;= #{endSales}
+			</if>
+			<!-- 排序一定要使用$取值 -->
+			<if test="(null!=orderColumn and orderColumn!='') and null!=orderMethod and orderMethod!=''">
+				order by ${orderColumn} ${orderMethod}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insert">
+		insert into b_goods (gid,gname,price,sales) values
+		<foreach collection="list" item="g" separator=",">
+			(#{g.gid},#{g.gname},#{g.price},#{g.sales})
+		</foreach>
+	</insert>
+</mapper>
