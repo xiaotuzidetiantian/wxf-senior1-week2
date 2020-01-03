@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and sales &lt;= #{endSales}
 			</if>
 			<!-- 排序一定要使用$取值 -->
-			<if test="(null!=orderColumn and orderColumn!='') and null!=orderMethod and orderMethod!=''">
+			<if test="(null!=orderColumn and orderColumn!='') and (null!=orderMethod and orderMethod!='')">
 				order by ${orderColumn} ${orderMethod}
 			</if>
 		</where>

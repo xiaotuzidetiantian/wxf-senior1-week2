@@ -22,8 +22,8 @@ href="${pageContext.request.contextPath}/resource/bootstrap.css">
 	<h2>列表展示页面</h2>
 	<div>
 		<form action="/selects" method="post" id="form1">
-			商品价格：<input type="text" name="startPrice" value="${goodsVo.startPrice }">--<input type="text" name="endPrice" value="${goodsVo.endPrice }"><br>
-			商品销售百分比：<input type="text" name="startSales" value="${goodsVo.startSales }">--<input type="text" name="endSales" value="${goodsVo.endSales }"><br>
+			商品价格：<input type="text" name="startPrice" value="${goodsVo.startPrice }">--<input type="text" name="endPrice" value="${goodsVo.endPrice }">
+			商品销售百分比：<input type="text" name="startSales" value="${goodsVo.startSales }">--<input type="text" name="endSales" value="${goodsVo.endSales }">
 			排序：<select name="orderColumn">
 					<option value="price" ${goodsVo.orderColumn=="price"?"selected":"" }>价格</option>
 					<option value="sales" ${goodsVo.orderColumn=="sales"?"selected":"" }>百分比</option>
