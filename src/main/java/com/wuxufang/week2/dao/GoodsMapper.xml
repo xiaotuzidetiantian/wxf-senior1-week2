@@ -7,14 +7,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selects" resultType="Goods">
 		select * from b_goods
 		<where>
-			<if test="null!=stratPrice and startPrice!=''">
+			<if test="null!=startPrice and startPrice!=''">
 				and price >= #{startPrice}
 			</if>
 			<if test="null!=endPrice and endPrice!=''">
 				and price &lt;= #{endPrice}
 			</if>
-			<if test="null!=stratSales and stratSales!=''">
-				and sales >= #{stratSales}
+			<if test="null!=startSales and startSales!=''">
+				and sales >= #{startSales}
 			</if>
 			<if test="null!=endSales and endSales!=''">
 				and sales &lt;= #{endSales}
