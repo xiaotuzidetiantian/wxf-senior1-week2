@@ -19,11 +19,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="null!=endSales and endSales!=''">
 				and sales &lt;= #{endSales}
 			</if>
-			<!-- 排序一定要使用$取值 -->
+		</where>
+		<!-- 排序一定要使用$取值 -->
 			<if test="(null!=orderColumn and orderColumn!='') and (null!=orderMethod and orderMethod!='')">
 				order by ${orderColumn} ${orderMethod}
 			</if>
-		</where>
 	</select>
 	
 	<insert id="insert">
