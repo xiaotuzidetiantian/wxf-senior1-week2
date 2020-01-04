@@ -44,7 +44,7 @@ public class GoodsServiceImplTest {
 		List<Goods> goodsList = new ArrayList<Goods>();
 		//调用工具类
 		List<String> list = StreamUtil.readLine(this.getClass().getResourceAsStream("/data.txt"));
-		for (int j = 1; j <list.size(); j++) {
+		for (int j = 0; j <list.size(); j++) {
 			Goods goods = new Goods();
 			String[] s = list.get(j).split("\\==");
 			goods.setGid(Integer.parseInt(s[0]));
